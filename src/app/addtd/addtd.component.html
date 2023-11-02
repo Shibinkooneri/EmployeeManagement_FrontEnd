@@ -1,0 +1,13 @@
+<h1 class="text-info">Add ToDo</h1>
+
+<form class="container text-center" [formGroup]="todoform" (ngSubmit)="submitted()">
+    <input type="text" formControlName="title" placeholder="Title" class="form-control mb-3">
+    <div class="alert alert-danger" *ngIf="todoform.controls.title.invalid && todoform.controls.title.touched">Invaid Title</div>
+    <input type="text" formControlName="desc" placeholder="Description" class="form-control mb-3">
+    <div class="alert alert-danger" *ngIf="todoform.controls.desc.invalid && todoform.controls.desc.touched">Invaid Description</div>
+    <input type="date" formControlName="date" placeholder="Date" class="form-control mb-3">
+    <div class="alert alert-danger" *ngIf="todoform.controls.date.invalid && todoform.controls.date.touched">Invaid Date</div>
+    <input type="file" (change)="filesubmit($event)" formControlName="file" class="form-control mb-3">
+    <div class="alert alert-danger" *ngIf="todoform.controls.title.invalid && todoform.controls.title.touched">Submit File</div>
+    <button class="btn btn-success" [disabled]="todoform.invalid">ADD</button>
+</form>
